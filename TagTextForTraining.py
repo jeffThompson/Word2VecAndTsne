@@ -26,8 +26,8 @@ from pattern.en import parse
 import warnings
 
 
-input_filename =  'ModelsAndData/WikipediaDump.txt'
-output_filename = 'ModelsAndData/WikipediaDump-POS.txt'
+input_filename =  'ModelsAndData/TimeMachine.txt'
+output_filename = 'ModelsAndData/TimeMachine-POS.txt'
 
 skip_ahead =       0		# skip ahead in source file?
 
@@ -58,7 +58,10 @@ with open(input_filename) as f:
 			continue
 		print '  - line ' + str(i+1) + ' / ' + str(num_lines)
 		line = line.strip()
-		pos = parse(line).split()[0]
+		try:
+			pos = parse(line).split()[0]
+		except:
+			pass
 		with open(output_filename, 'a') as out:
 			for p in pos:
 				try:
