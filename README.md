@@ -1,18 +1,19 @@
 WORD2VEC AND TSNE
 ====
 
-Word2Vec is cool. So is tsne. But training a model and reducing the vector space can be intimidating. I definitely found that to be the case, so here are some Python scripts meant to document how to start using these great tools, and to make it easier for you to use Word2Vec and tsne in your projects.
+Word2Vec is cool. So is tsne. But trying to figure out how to train a model and reduce the vector space can feel really, really complicated. I definitely found that to be the case, so here are some Python scripts meant to document how to start using these great tools, and to make it easier for you to use Word2Vec and tsne in your projects.
+
+(If you make something cool with this code, please let me know!)
 
 ##CONTENTS  
-This repo includes:
 
-* `lib/`: where you need to put modules like `rasterfairy` that you can't install  
-* `ModelsAndData/`: where the `50kCommonWords.txt` file is, and where model files will write to  
-* `SampleOutput/`: the Wikipedia dump, including parts-of-speech, trained and reduced to 2D vector space  
-* `TagTextForTraining.py`: splits a text into words, then gets their part-of-speech  
-* `TrainModel.py`: first script to run, which trains a Word2Vec model on an input text file  
+* `lib/`: where you need to put `rasterfairy` and any other modules that you can't install with pip, etc  
+* `ModelsAndData/`: where the `50kCommonWords.txt` file is located, and where model files will be written to by default  
+* `SampleOutput/`: a sample output from a Wikipedia dump (trained including parts-of-speech), reduced to 2D  
+* `TagTextForTraining.py`: splits a text into words, then gets their part-of-speech – useful for preserving different senses of a word  
+* `TrainModel.py`: first script to run, which trains a Word2Vec model on a text file  
 * `TsneToGrid.py`: a final optional step, uses the `rasterfairy` module to convert the tsne vector space into an even grid  
-* `TwoStageReduce.py`: second step, takes a Word2Vec model and reduces its vector space  
+* `TwoStageReduce.py`: second step, takes a Word2Vec model and reduces its vector space to N dimensions  
 * `VisualizeVectorSpace/`: a Processing sketch for visualizing your flattened vector space  
 
 ##REQUIRED LIBRARIES  
