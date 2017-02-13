@@ -22,8 +22,8 @@ from lib import rasterfairy
 from sklearn.manifold import TSNE
 
 
-input_filename =  'WikipediaDump-POS-2D-NORMALIZED.csv'
-output_filename = 'WikipediaDump-POS-2D-NORMALIZED-GRID.csv'
+input_filename =  'ModelsAndData/TimeMachine-2D-NORMALIZED.csv'
+output_filename = 'ModelsAndData/TimeMachine-2D-NORMALIZED-GRID.csv'
 
 skip_header = 	   False		# if csv has a header, skip it
 

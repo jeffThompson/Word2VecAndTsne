@@ -15,8 +15,8 @@ REQUIRES
 from gensim import models, matutils
 
 
-input_filename =  'ModelsAndData/WikipediaDump-POS.txt'		# file of text to train on
-model_filename =  'ModelsAndData/WikipediaDump-POS.model'	# name for saving trained model
+input_filename =  'ModelsAndData/TimeMachine.txt'		# file of text to train on
+model_filename =  'ModelsAndData/TimeMachine.model'		# name for saving trained model
 
 # train using skip-gram?
 # (ignore unless you wanna do detailed tweaking)

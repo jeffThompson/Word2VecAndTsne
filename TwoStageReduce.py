@@ -11,10 +11,10 @@ Loads word2vec model, reduces to N dimensions.
 
 OPTIONS
 + Do an initial reduction, best for large data sets
-  that would choke on a direct 2D reduction – uses
+  that would choke on a direct 2D reduction - uses
   PCA from sklearn (much faster than tsne)
 + Keep only N most common words, also helpful for
-  large data sets – any count up to 50k allowed
+  large data sets - any count up to 50k allowed
 
 REQUIRES
 + gensim
@@ -33,8 +33,8 @@ import numpy as np 									# array handling
 import os, warnings
 
 
-model_filename =    'ModelsAndData/WikipediaDump-POS.model'		# model file to reduce
-model_name = 		'WikipediaDump-POS'							# name for exporting files
+model_filename =    'ModelsAndData/TimeMachine.model'		# model file to reduce
+model_name = 		'TimeMachine'							# name for exporting files
 
 num_dimensions =     2				# final num dimensions (2D, 3D, etc)
 
@@ -44,6 +44,7 @@ init_dimensions =    20				# initial reduction before t-SNE
 # use only most common words (helpful for big data sets)
 only_most_common =   True
 num_common = 		 50000			# how many words to filter to? (max 50k)
+tagged_pos = 		 False			# is our model tagged with parts-of-speech?
 
 common_filename = 	 'ModelsAndData/50kMostCommonWords.txt'
 
@@ -97,16 +98,24 @@ vectors= []			# positions in vector space
 labels = []			# keep track of words to label our data again later
 for word in model.vocab:
 	if only_most_common:
-		parts = word.split('_')		# split _ for POS-tagged words
-		w = parts[0].lower()
-		p = parts[1]
-		if w in most_common:
-			word = w + '_' + p
-			try:
-				vectors.append(model[word])
-				labels.append(word)
-			except:
-				pass
+		if tagged_pos:
+			parts = word.split('_')		# split _ for POS-tagged words
+			w = parts[0].lower()
+			p = parts[1]
+			if w in most_common:
+				word = w + '_' + p
+				try:
+					vectors.append(model[word])
+					labels.append(word)
+				except:
+					pass
+		else:
+			if word in most_common:
+				try:
+					vectors.append(model[word])
+					labels.append(word)
+				except:
+					pass
 	else:
 		vectors.append(model[word])
 		labels.append(word)
@@ -129,7 +138,7 @@ if run_init_reduction:
 
 	# save reduced vector space to file
 	print '- saving as csv...'
-	with open(model_name + '-' + str(init_dimensions) + 'D.csv', 'w') as f:
+	with open('ModelsAndData/' + model_name + '-' + str(init_dimensions) + 'D.csv', 'w') as f:
 		for i in range(len(labels)):
 			f.write(labels[i] + ',' + ','.join(map(str, vectors[i])) + '\n')
 
@@ -147,7 +156,7 @@ print '- done'
 print 'saving as csv...'
 x_vals = [ v[0] for v in vectors ]
 y_vals = [ v[1] for v in vectors ]
-with open(model_name + '-' + str(num_dimensions) + 'D.csv', 'w') as f:
+with open('ModelsAndData/' + model_name + '-' + str(num_dimensions) + 'D.csv', 'w') as f:
 	for i in range(len(labels)):
 		label = labels[i]
 		x = x_vals[i]
@@ -161,7 +170,7 @@ print 'normalizing position values...'
 x_vals = normalize_list(x_vals)
 y_vals = normalize_list(y_vals)
 print '- saving as csv...'
-with open(model_name + '-' + str(num_dimensions) + 'D-NORMALIZED.csv', 'w') as f:
+with open('ModelsAndData/' + model_name + '-' + str(num_dimensions) + 'D-NORMALIZED.csv', 'w') as f:
 	for i in range(len(labels)):
 		label = labels[i]
 		x = x_vals[i]
