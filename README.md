@@ -5,7 +5,7 @@ Word2Vec is cool. So is tsne. But trying to figure out how to train a model and 
 
 (For a more detailed tutorial on how to use these scripts, see [this blog post](www.jeffreythompson.org/blog/2017/02/13/using-word2vec-and-tsne/).)
 
-##CONTENTS  
+## CONTENTS  
 
 * `lib/`: where you need to put `rasterfairy` and any other modules that you can't install with pip, etc  
 * `ModelsAndData/`: where the `50kCommonWords.txt` file is located, and where model files will be written to by default; also includes a sample trained on H.G. Wells' *Time Machine*  
@@ -16,7 +16,7 @@ Word2Vec is cool. So is tsne. But trying to figure out how to train a model and 
 * `TwoStageReduce.py`: second step, takes a Word2Vec model and reduces its vector space to N dimensions  
 * `VisualizeVectorSpace/`: a Processing sketch for visualizing your flattened vector space  
 
-##REQUIRED LIBRARIES  
+## REQUIRED LIBRARIES  
 To use this code, you'll need to install some pretty hefty libraries. Luckily, they all install very easily.
 
 * [gensim](https://radimrehurek.com/gensim/) for Word2Vec  
@@ -26,7 +26,7 @@ To use this code, you'll need to install some pretty hefty libraries. Luckily, t
 * Optional: [pattern](http://www.clips.ua.ac.be/pattern) for part-of-speech tagging  
 * Optional: [Wikipedia Extractor](http://medialab.di.unipi.it/wiki/Wikipedia_Extractor) to strip Wiki tags (if you're using a Wikipedia dump as your data source)  
 
-##TO USE THIS CODE  
+## TO USE THIS CODE  
 Here's the basics, or see [this blog post](If you make something cool with this code, please let me know!):  
 
 1. Install the required libraries listed above and download a data set to train on  
