@@ -27,7 +27,7 @@ To use this code, you'll need to install some pretty hefty libraries. Luckily, t
 * Optional: [Wikipedia Extractor](http://medialab.di.unipi.it/wiki/Wikipedia_Extractor) to strip Wiki tags (if you're using a Wikipedia dump as your data source)  
 
 ## TO USE THIS CODE  
-Here's the basics, or see [this blog post][this blog post](www.jeffreythompson.org/blog/2017/02/13/using-word2vec-and-tsne/) (if you make something cool with this code, please let me know!):  
+Here's the basics, or see [this blog post](www.jeffreythompson.org/blog/2017/02/13/using-word2vec-and-tsne/) (if you make something cool with this code, please let me know!):  
 
 1. Install the required libraries listed above and download a data set to train on  
 2. Get an input text file to train on, such as a novel (a good place to start) or something larger like a Wikipedia data dump – note that larger files = much longer processing time  
