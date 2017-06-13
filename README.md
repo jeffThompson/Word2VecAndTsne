@@ -3,7 +3,7 @@ WORD2VEC AND TSNE
 
 Word2Vec is cool. So is tsne. But trying to figure out how to train a model and reduce the vector space can feel really, really complicated. I definitely found that to be the case, so here are some Python scripts meant to document how to start using these great tools, and to make it easier for you to use Word2Vec and tsne in your projects. If you make something cool with this code, please let me know!
 
-(For a more detailed tutorial on how to use these scripts, see [this blog post](www.jeffreythompson.org/blog/2017/02/13/using-word2vec-and-tsne/).)
+(For a more detailed tutorial on how to use these scripts, see [this blog post](http://www.jeffreythompson.org/blog/2017/02/13/using-word2vec-and-tsne/).)
 
 ## CONTENTS  
 
